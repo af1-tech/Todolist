@@ -46,9 +46,7 @@ app.get("/", function(req, res) {
     }else{
       if (foundItems.length===0){
         Item.insertMany(defaultItems,function(err){
-          if (err){
-            console.log(err);
-          }else{
+          if (!err){
             console.log("Items added!");
           }
         });
@@ -59,7 +57,6 @@ app.get("/", function(req, res) {
       }     
     }
   });
-
 });
 
 app.post("/", function(req, res){
@@ -73,6 +70,16 @@ app.post("/", function(req, res){
   item.save();
  
   res.redirect("/");
+});
+
+app.post("/delete",function(req,res){
+  const checkedItemId = req.body.checkbox;
+  Item.findByIdAndRemove(checkedItemId,function(err){
+    if (!err){
+      console.log("Item deleted!");
+    }
+    res.redirect("/");
+  });  
 });
 
 app.get("/work", function(req,res){

@@ -7,12 +7,14 @@
     </div>
       
     <div class="box props">
+      <form action="/delete" method="post">
       <% newListItems.forEach(function(item) { %>
         <div class="item">
-          <input type="checkbox">
+          <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
           <p><%=  item.name  %></p>
         </div>
         <% }) %>
+      </form>
 
       <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off"/>
