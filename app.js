@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const favicon = require("serve-favicon");
-const date = require(__dirname + "/date.js");
 
 
 const app = express();
