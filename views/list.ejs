@@ -1,27 +1,61 @@
 <%- include("partials/header") -%>
 
- 
 
-    <div class="box" id="heading"> 
-      <h1><%= listTitle %></h1>
+  <div class="divbox1">
+    <div class="box1" id="heading"> 
+      <h1>LISTS</h1>
+    </div>
+    <div class="box1 props">
+      <form class="form-list" action="/selectlist" method="post">   
+      <% for(i=0;i<listTitle.length;i++){ %>                        
+        <% if (listTitle[i]._id == ids){ %>
+              <br><br>
+              <input type="radio" name="listRadio" value="<%=listTitle[i]._id%>" checked="checked" formaction="/selectlist" onChange="this.form.submit()">        
+              <label><%=listTitle[i].name%></label>
+              <button class="btn-delete" type="submit" name="deleteList" formaction="/deletelist" value="<%=listTitle[i]._id%>"></button>
+              <br><br>   
+            <% } else{ %>
+              <br><br>
+              <input type="radio" name="listRadio" value="<%=listTitle[i]._id%>" formaction="/selectlist" onChange="this.form.submit()">        
+              <label><%=listTitle[i].name%></label>
+              <button class="btn-delete" type="submit" name="deleteList" formaction="/deletelist" value="<%=listTitle[i]._id%>"></button>
+              <br><br>       
+           <% } %>  
+        <% } %>
+      </form>
+
+      <form class="list" action="/addList" method="post">
+        <input class="input1" type="text" name="newList" placeholder="New List" autocomplete="off"/>
+        <button class="button1" type="submit" name="lists" value="<%= listTitle %>">+</button>
+      </form>
+    </div>    
+  </div>  
+
+  <div class="divbox2">
+    <div class="box2" id="heading"> 
+      <h1> <%= listTitles %> </h1> 
     </div>
       
-    <div class="box props">
-      <form action="/delete" method="post">
-      <% newListItems.forEach(function(item) { %>
-        <div class="item">
-          <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
-          <p><%=  item.name  %></p>
-        </div>
-        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
-        <% }) %>
-      </form>
-
-      <form class="item" action="/" method="post">
-        <input type="text" name="newItem" placeholder="New Item" autocomplete="off"/>
-        <button type="submit" name="list" value= <%= listTitle %> >+</button>
-      </form>
+    <div class="box2 props">
+    
+        <form action="/deleteItem" method="post">      
+            <%  newListItems.forEach(function(item){ %>  
+              <div class="item">
+                <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+                <p><%=item.name%></p>
+              </div>
+              <input type="hidden" name="listName" value="<%= listTitles %>"></input>         
+            <%  }) %>  
+        </form>
+        
+  
+        <form class="item" action="/addItem" method="post">
+          <input class="input2" type="text" name="newItem" placeholder="New Item" autocomplete="off">
+          <button class="button2" type="submit" name="list" value="<%= listTitles %>">+</button>
+        </form> 
+     
     </div>
+  </div>
     
   
 
