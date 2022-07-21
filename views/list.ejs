@@ -1,6 +1,5 @@
 <%- include("partials/header") -%>
 
-
   <div class="divbox1">
     <div class="box1" id="heading"> 
       <h1>LISTS</h1>
@@ -36,8 +35,7 @@
       <h1> <%= listTitles %> </h1> 
     </div>
       
-    <div class="box2 props">
-    
+    <div class="box2 props">    
         <form action="/deleteItem" method="post">      
             <%  newListItems.forEach(function(item){ %>  
               <div class="item">
@@ -56,7 +54,7 @@
      
     </div>
   </div>
-    
+
   
 
 <%- include("partials/footer") -%>

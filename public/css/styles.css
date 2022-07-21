@@ -1,7 +1,7 @@
 html {
   background-color: #E4E9FD;
   background-image: -webkit-linear-gradient(65deg, #7FB5FF 50%, #C4DDFF 50%);
-  min-height: 100vh;
+  height: 100vh;
   font-family: 'helvetica neue';
 }
 
@@ -24,17 +24,19 @@ p {
 }
 
 .props{
-  height: 60vh;
+  height: 30vh;
   overflow-y:scroll; 
 }
 
 .divbox1{
-  display: inline-block;
-  width: 25%;
+  display: block;
+  height: 30vh;
+  width: 100vw;
+  padding: 5rem 0rem 5rem;
 }
 
 .box1 {
-  max-width: 300px;
+  width: 55vw;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
@@ -44,8 +46,9 @@ p {
 .list {
   min-height: 50px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #F1F1F1;
+  padding-top: 2vh;
 }
 
 form.list {
@@ -54,7 +57,8 @@ form.list {
 }
 
 .form-list{
-  width: 250px;
+  width: 30vh;
+  font-size: 2rem;
 }
 
 .button1 {
@@ -75,9 +79,9 @@ form.list {
   top: 20px;
   border: none;
   background: transparent;
-  font-size: 15px;
+  font-size: 2rem;
   font-weight: 200;
-  width: 200px;
+  width: 30vh;
 }
 
 .input1:focus {
@@ -92,16 +96,19 @@ form.list {
   background-image:url('../img/trash.png');
   background-size:100% 100%;
   background-repeat:no-repeat;
-  float:right;
+  float: right;
+  
 }
 
 .divbox2{
-  display: inline-block;
-  width: 74%;
+  display: block;
+  height: 30vh;
+  width: 100vw;
+  padding: 5rem 0rem 5rem;
 }
 
 .box2 {
-  max-width: 600px;
+  width: 55vw;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
@@ -166,14 +173,42 @@ form.item {
   opacity: 1;
 }
 
-
 footer {
-  position: absolute;
+  display: block;
+  position: fixed;
   bottom: 2rem;
   width: 99vw;
-	height: 60px;
-  color: white;
-  color: rgba(0, 0, 0, 0.5);
+	height: 6vh;
+  color: black;
   font-size: 2.5rem;
   text-align: center;
+}
+
+/* media queries */
+
+@media (max-width:576px),(orientation:portrait) {
+	
+}
+
+@media (min-width:576px) and (orientation:landscape){
+	.divbox1{position: absolute;left:5vh;height: 40vh;width: 25vw;padding: 0rem;}
+  .box1{width: 25vw;}
+  .divbox2{position: absolute;right:0;height: 40vh;width: 70vw;padding: 0rem;}
+  .props{height: 40vh;overflow-y:scroll;}
+  .form-list{font-size: 1.5rem;}
+  .input1{font-size: 1.5rem;}
+  .input2{font-size: 1.5rem;}
+}
+
+@media (min-width:768px){
+
+}
+
+@media (min-width:992px){
+	
+}
+
+@media (min-width:1200px){
+	
+
 }
